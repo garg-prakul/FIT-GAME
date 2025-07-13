@@ -17,62 +17,6 @@ pose = mp_pose.Pose(static_image_mode=True, min_detection_confidence=0.3, model_
 mp_drawing = mp.solutions.drawing_utils
 
 
-# # Read an image from the specified path.
-# sample_img = cv2.imread('sample.jpg')
-#
-# # Specify a size of the figure.
-# plt.figure(figsize = [10, 10])
-#
-# # Display the sample image, also convert BGR to RGB for display.
-# plt.title("Sample Image");plt.axis('off');plt.imshow(sample_img[:,:,::-1]);plt.show()
-#
-# # Perform pose detection after converting the image into RGB format.
-# results = pose.process(cv2.cvtColor(sample_img, cv2.COLOR_BGR2RGB))
-
-# # Check if any landmarks are found.
-# if results.pose_landmarks:
-#
-#     # Iterate two times as we only want to display first two landmarks.
-#     for i in range(2):
-#         # Display the found normalized landmarks.
-#         print(f'{mp_pose.PoseLandmark(i).name}:\n{results.pose_landmarks.landmark[mp_pose.PoseLandmark(i).value]}')
-#
-# # Retrieve the height and width of the sample image.
-# image_height, image_width, _ = sample_img.shape
-#
-# # Check if any landmarks are found.
-# if results.pose_landmarks:
-#
-#     # Iterate two times as we only want to display first two landmark.
-#     for i in range(2):
-#         # Display the found landmarks after converting them into their original scale.
-#         print(f'{mp_pose.PoseLandmark(i).name}:')
-#         print(f'x: {results.pose_landmarks.landmark[mp_pose.PoseLandmark(i).value].x * image_width}')
-#         print(f'y: {results.pose_landmarks.landmark[mp_pose.PoseLandmark(i).value].y * image_height}')
-#         print(f'z: {results.pose_landmarks.landmark[mp_pose.PoseLandmark(i).value].z * image_width}')
-#         print(f'visibility: {results.pose_landmarks.landmark[mp_pose.PoseLandmark(i).value].visibility}\n')
-#
-# # Create a copy of the sample image to draw landmarks on.
-# img_copy = sample_img.copy()
-#
-# # Check if any landmarks are found.
-# if results.pose_landmarks:
-#     # Draw Pose landmarks on the sample image.
-#     mp_drawing.draw_landmarks(image=img_copy, landmark_list=results.pose_landmarks,
-#                               connections=mp_pose.POSE_CONNECTIONS)
-#
-#     # Specify a size of the figure.
-#     fig = plt.figure(figsize=[10, 10])
-#
-#     # Display the output image with the landmarks drawn, also convert BGR to RGB for display.
-#     plt.title("Output");
-#     plt.axis('off');
-#     plt.imshow(img_copy[:, :, ::-1]);
-#     plt.show()
-#
-# # Plot Pose landmarks in 3D.
-# mp_drawing.plot_landmarks(results.pose_world_landmarks, mp_pose.POSE_CONNECTIONS)
-#
 
 def detectPose(image, pose, display=True):
     '''
@@ -137,19 +81,6 @@ def detectPose(image, pose, display=True):
 
         # Return the output image and the found landmarks.
         return output_image, landmarks
-
-
-# # Read another sample image and perform pose detection on it.
-# image = cv2.imread('sample1.jpg')
-# detectPose(image, pose, display=True)
-#
-# # Read another sample image and perform pose detection on it.
-# image = cv2.imread('sample2.jpg')
-# detectPose(image, pose, display=True)
-#
-# # Read another sample image and perform pose detection on it.
-# image = cv2.imread('sample3.jpg')
-# detectPose(image, pose, display=True)
 
 # Setup Pose function for video.
 pose_video = mp_pose.Pose(static_image_mode=False, min_detection_confidence=0.5, model_complexity=1)
@@ -388,76 +319,7 @@ def classifyPose(landmarks, output_image, display=False):
         return output_image, label
 
 
-# # Read a sample image and perform pose classification on it.
-# image = cv2.imread('media/warriorIIpose.jpg')
-# output_image, landmarks = detectPose(image, pose, display=False)
-# if landmarks:
-#     classifyPose(landmarks, output_image, display=True)
-#
-# # Read another sample image and perform pose classification on it.
-# image = cv2.imread('media/warriorIIpose1.jpg')
-# output_image, landmarks = detectPose(image, pose, display=False)
-# if landmarks:
-#     classifyPose(landmarks, output_image, display=True)
-#
-# # Read a sample image and perform pose classification on it.
-# image = cv2.imread('media/treepose.jpg')
-# output_image, landmarks = detectPose(image, mp_pose.Pose(static_image_mode=True,
-#                                                          min_detection_confidence=0.5, model_complexity=0),
-#                                      display=False)
-# if landmarks:
-#     classifyPose(landmarks, output_image, display=True)
-#
-# # Read another sample image and perform pose classification on it.
-# image = cv2.imread('media/treepose1.jpg')
-# output_image, landmarks = detectPose(image, mp_pose.Pose(static_image_mode=True,
-#                                                          min_detection_confidence=0.5, model_complexity=0),
-#                                      display=False)
-# if landmarks:
-#     classifyPose(landmarks, output_image, display=True)
-#
-# # Read another sample image and perform pose classification on it.
-# image = cv2.imread('media/treepose2.jpg')
-# output_image, landmarks = detectPose(image, pose, display=False)
-# if landmarks:
-#     classifyPose(landmarks, output_image, display=True)
-#
-# # Read another sample image and perform pose classification on it.
-# image = cv2.imread('media/Tpose.jpg')
-# output_image, landmarks = detectPose(image, pose, display=False)
-# if landmarks:
-#     classifyPose(landmarks, output_image, display=True)
-#
-# # Read another sample image and perform pose classification on it.
-# image = cv2.imread('media/Tpose1.jpg')
-# output_image, landmarks = detectPose(image, pose, display=False)
-# if landmarks:
-#     classifyPose(landmarks, output_image, display=True)
-#
-# # Read another sample image and perform pose classification on it.
-# image = cv2.imread('media/cobrapose1.jpg')
-# output_image, landmarks = detectPose(image, pose, display=False)
-# if landmarks:
-#     classifyPose(landmarks, output_image, display=True)
 
-# Setup Pose function for video.
-
-# seconds_old =0
-# dem =  0
-# z =1      #chosen pose number one
-# def count_time (time):
-#     global seconds_old, dem,z
-#     now = datetime.now()
-#     seconds_new = now.strftime("%S")
-#     if seconds_new != seconds_old:
-#         seconds_old = seconds_new
-#         dem = dem + 1
-#         if dem == time+1:
-#             dem =0
-#             z +=1
-#             if z==5:
-#                 z=1
-#     return dem, z
 
 def speak(a):
      textspeech = pyttsx3.init()
@@ -581,5 +443,5 @@ while camera_video.isOpened():
 camera_video.release()
 cv2.destroyAllWindows()
 
-if(flag): print("Congatulations! you have unlocked the game as a reward")
+if(flag) :print("Congatulations! you have unlocked the game as a reward")
 print("Enable the play button in the UI to allow access to /games route.")

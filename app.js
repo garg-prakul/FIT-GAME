@@ -23,9 +23,9 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-const url_endlessRunner_1 = "https://scratch.mit.edu/projects/600560206/embed"
-const url_endlessRunner_2 = "https://scratch.mit.edu/projects/599708735/embed"
-const url_endlessRunner_3 = "https://scratch.mit.edu/projects/600097774/embed"
+const url_PaperMinecraft = "https://scratch.mit.edu/projects/10128407/embed"
+const url_TurboWarpKart = "https://scratch.mit.edu/projects/768298770/embed"
+const url_SnakeGameExtreme = "https://scratch.mit.edu/projects/487258179/embed"
 var url_send=""
 gameName=""
 
@@ -69,15 +69,15 @@ app.post("/games", function (req, res) {
     var gameName=req.body.gameName;
     
     if(gameName=="endless-runner-1"){
-        url_send=url_endlessRunner_1;
+        url_send=url_PaperMinecraft;
         res.redirect("/play")
     } 
     else if(gameName=="endless-runner-2"){
-        url_send=url_endlessRunner_2;
+        url_send=url_TurboWarpKart;
         res.redirect("/play")
     }
     else if(gameName=="endless-runner-3"){
-        url_send=url_endlessRunner_3;
+        url_send=url_SnakeGameExtreme;
         res.redirect("/play")
     }
 
@@ -101,19 +101,7 @@ app.get("/play", function (req, res) {
     
 });
 
-// app.post("/play", function (req, res) {
 
-//     console.log(req.body);
-//     var gameName=req.body.gameName;
-
-//     if(gameName=="endless-runner-1"){
-    //         res.redirect("/play");
-    //     }
-    
-    // })
-    
-    
-    // host=process.env.PORT
 // Route to start yoga exercise
 app.post('/start-yoga', (req, res) => {
     const pythonProcess = spawn('python', [path.join(__dirname, 'yoga_final', 'code.py')]);
