@@ -120,14 +120,14 @@ def detectPose(image, pose, display=True):
 
         # Display the original input image and the resultant image.
         plt.figure(figsize=[22, 22])
-        plt.subplot(121);
-        plt.imshow(image[:, :, ::-1]);
-        plt.title("Original Image");
-        plt.axis('off');
-        plt.subplot(122);
-        plt.imshow(output_image[:, :, ::-1]);
-        plt.title("Output Image");
-        plt.axis('off');
+        plt.subplot(121)
+        plt.imshow(image[:, :, ::-1])
+        plt.title("Original Image")
+        plt.axis('off')
+        plt.subplot(122)
+        plt.imshow(output_image[:, :, ::-1])
+        plt.title("Output Image")
+        plt.axis('off')
 
         # Also Plot the Pose landmarks in 3D.
         mp_drawing.plot_landmarks(results.pose_world_landmarks, mp_pose.POSE_CONNECTIONS)
@@ -378,9 +378,9 @@ def classifyPose(landmarks, output_image, display=False):
 
         # Display the resultant image.
         plt.figure(figsize=[10, 10])
-        plt.imshow(output_image[:, :, ::-1]);
-        plt.title("Output Image");
-        plt.axis('off');
+        plt.imshow(output_image[:, :, ::-1])
+        plt.title("Output Image")
+        plt.axis('off')
 
     else:
 
@@ -485,9 +485,9 @@ def ResizeWithAspectRatio(image, width=None, height=None, inter=cv2.INTER_AREA):
     return cv2.resize(image, dim, interpolation=inter)
 
 def showimg(icon):
-    image = cv2.imread("images/{}.jpg".format(icon))
-    image=ResizeWithAspectRatio(image, width=400)
-    cv2.imshow('Pose',image)
+    image = cv2.imread("yoga_final/images/{}.jpg".format(icon))
+    image = ResizeWithAspectRatio(image, width=400)
+    cv2.imshow('Pose', image)
 
 pose_video = mp_pose.Pose(static_image_mode=False, min_detection_confidence=0.5, model_complexity=1)
 
@@ -498,7 +498,7 @@ camera_video.set(4, 960)
 
 # Initialize a resizable window.
 cv2.namedWindow('Pose Classification', cv2.WINDOW_NORMAL)
-pose_array=['T Pose','Tree Pose','Warrior II Pose','T Pose','Tree Pose','Warrior II Pose']
+pose_array=['T Pose','Tree Pose','Warrior II Pose']
 
 color = (0, 255, 0)
 i=0
@@ -511,8 +511,11 @@ speak("Look at the visuals to understand the pose")
 speak("Gear up now! Hope you have a fun time")
 speak("Make the "+pose_array[i])
 
+flag=True
+
 while camera_video.isOpened():
 
+    print("started")
     # Read a frame.
     ok, frame = camera_video.read()
     
@@ -558,20 +561,25 @@ while camera_video.isOpened():
     cv2.putText(frame, pose_array[i], (10, 60), cv2.FONT_HERSHEY_PLAIN, 2, color, 2)
     cv2.imshow('Pose Classification', frame)
 
+    if (i>len(pose_array)) :
+        # Break the loop.
+        break
+
     # Wait until a key is pressed.
     # Retreive the ASCII code of the key pressed
     k = cv2.waitKey(1) & 0xFF
 
 
+
     # Check if 'ESC' is pressed.
-    if (k == 27) or (i>len(pose_array)):
+    if (k == 27) :
         # Break the loop.
+        flag=False
         break
 
 # Release the VideoCapture object and close the windows.
-speak("Congatulations! you have unlocked the game as a reward")
 camera_video.release()
 cv2.destroyAllWindows()
 
-import webbrowser
-webbrowser.open('https://fitgame.herokuapp.com/games')
+if(flag): print("Congatulations! you have unlocked the game as a reward")
+print("Enable the play button in the UI to allow access to /games route.")

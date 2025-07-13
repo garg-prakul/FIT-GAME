@@ -173,162 +173,32 @@
 
     <!-- ========= Embedding Game START ========== -->
 
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500"
-        width="2000" height="1000" version="1.0">
-        <g transform="translate(300, 250)">
-            <g transform="rotate(0, -200, 130)">
-                <g transform="rotate(0, 0, 0)">
-                    <!--ani body-->
-                    <g transform="rotate( 0,0,-8)">
-                        <path d="M0 -110 l0 100" fill="none" stroke="red" stroke-width="3">
-                            <animate dur="8s" repeatCount="indefinite" attributeName="d" values="
-                      M0 -100 c-10 50 10 50 0 100;
-                      M0 -100 c0 50 0 50 0 90;
-                      M0 -100 c-30 50 -20 50 0 90;
-                      M0 -100 c0 50 0 50 0 90;
-                      M0 -100 c-20 70 -20 50 0 90;
-                      M0 -100 c-10 70 -10 50 0 95;
-                      M0 -80 c0 70 0 50 0 95;
-                      M0 -80 c0 70 0 50 0 95;
-                      M0 -80 c0 70 0 50 0 95;
-                      M-60 -75 c40 30 50 50 60 95;
-                      M-60 -50 c0 30 0 50 0 100;
-                    M-60 -40 c-40 25 -40 25 -80 50;
-                      M-60 -50 c0 30 0 50 0 100;
-                      M0 -100 c-10 70 -10 50 0 95;
-                      M0 -100 c-20 70 -20 50 0 90;
-                      M0 -100 c-10 50 10 50 0 100;">
-                        </path>
-                        <!--        arms-->
-                        <path d="M0 -100 l0 -45 l0 -45" fill="none" stroke="red" stroke-width="3">
-                            <animate dur="8s" repeatCount="indefinite" attributeName="d" values="
-                     M0 -90 l-5 40 l10 40;
-                     M0 -100 l0 -45 l0 -45;
-                     M0 -100 l45 10 l45 10;
-                     M0 -100 l45 0 l45 0;
-                     M0 -100 l45 -8 l45 -8;
-                     M0 -100 l45 -8 l45 -8;
-                     M0 -80 l45 -18 l45 -18;
-                     M0 -80 l50 10 l50 10;
-                      M0 -80 l-10 50 l50 -50;
-                     M-60 -75 l50 10 l50 -15;
-                     M-60 -50 l50 -15 l50 -15;
-                    M-60 -40 l50 -20 l50 -20;
-                     M-60 -50 l50 -15 l70 -15;
-                     M0 -100 l45 -8 l70 -8; 
-                     M0 -100 l45 -8 l45 -8; 
-                     M0 -90 l-5 40 l10 40;">
-                        </path>
-                        <!--    ani  head-->
-                        <circle cx="0" cy="-140" r="30" stroke="red" stroke-width="3" fill="none">
-                            <animate dur="8s" repeatCount="indefinite" attributeName="cy" values="
-                    -130; -130; -130; -130; -130; -130; -110; -110; -110;-90; -70; -50; -70; -130; -130; -130" />
-                            <animate dur="8s" repeatCount="indefinite" attributeName="cx" values="
-                    0; 0; 0; 0; 0; 0; 0; 0; 0;-85; -40; -30; -40; 0; 0; 0" />
-                        </circle>
-                        <animateTransform attributeName="transform" attributeType="XML" type="rotate" fill="freeze"
-                            values="
-                  0,0,-8;
-                  0,0,-8;
-                  130,0,-8;
-                  90, 0, -8;
-                  130, 0, -8;
-                  130, 0, -8;
-                  130, 0, -8;
-                  130, 0, -8;
-                  130, 0, -8;
-                  130, 0, -8;
-                  130, 0, -8;
-                  130, 0, -8;
-                  130, 0, -8;
-                  130, 0, -8;
-                  130, 0, -8;
-                  0,0,-8" dur="8s" repeatCount="indefinite" />
+<!-- ========= Embedding Game START ========== -->
+   <div class="container text-center" style="margin-top:40px;">
+        <button id="startYogaBtn" class="btn btn-primary">Start Yoga Exercise</button>
+        <br><br>
+        <button id="playGameBtn" class="btn btn-success" disabled onclick="window.location.href='/games'">Play Game</button>
+        <div id="yogaStatus" style="margin-top:20px;"></div>
+    </div>
 
-                    </g>
-                    <!-- ani leg  -->
-                    <g>
-                        <path d="M0 -10 l0 45 l0 45" fill="none" stroke="red" stroke-width="3">
-                            <animate dur="8s" repeatCount="indefinite" attributeName="d" values="
-                   M0 0 l5 65 l-10 65;
-                   M0 -10 l0 70 l0 70;
-                   M0 -10 l0 70 l0 70;
-                   M0 -10 l0 70 l0 70;
-                   M0 -10 l0 70 l0 70;
-                   M0 -10 l70 40 l-70 40;
-                  M0 -10 l0 70 l0 70;
-                   M0 -10 l0 70 l0 70;
-                   M0 -10 l0 70 l0 70;
-                   M0 -10 l0 70 l0 70;
-                   M-60 24 l60 10 l0 80;
-                  M-136 -13 l70 60 l70 60;
-                   M-60 24 l60 10 l0 80;
-                   M0 -10 l70 40 l-70 40;
-                   M0 -10 l0 70 l0 70;
-                   M0 0 l5 65 l-10 65;">
-                        </path>
-                        <animateTransform attributeName="transform" attributeType="XML" type="rotate" fill="freeze"
-                            values="
-                  0,0,-10;
-                  0,0,-10;
-                  0,0,-10;
-                  0, 0, -10;
-                  0, 0, -10;
-                  120, 0, -10;
-                  130, -5 , -20;
-                  130, -5 , -20;
-                   130, -5 , -20;
-                  130, -5 , -20;
-                  130, -5 , -20;
-                  130, -5 , -20;
-                  130, -5 , -20;
-                  120, 0 , -10;
-                  0, 0, -10;
-                  0, 0, -10" dur="8s" repeatCount="indefinite" />
-                    </g>
-
-                    <animateTransform attributeName="transform" attributeType="XML" type="rotate" fill="freeze" values="
-                  0,  25, 80;
-                  0,  25, 80;
-                  0, 25, 80;
-                  0, 25, 80;
-                  0, 25, 80;
-                  0, 25, 80;
-                  0, 25, 80;
-                -65, 25, 80;
-                -65, 25, 80;
-                -65, 25, 80;
-                -65, 25, 80;
-                -65, 25, 80;
-                -65, 25, 80;
-                0, 25, 80;
-                0, 25, 80;
-                0, 25, 80;" dur="8s" repeatCount="indefinite" />
-                </g>
-                <animateTransform attributeName="transform" attributeType="XML" type="rotate" fill="freeze" values="
-                  0, -200, 130;
-                  0, -200, 130
-                  0, -200, 130;
-                  0, -200, 130;
-                  0, -200, 130;
-                  0, -200, 130;
-                  0, -200, 130;
-                  0, -200, 130;
-                  15, -200, 130;
-                  15, -200, 130;
-                  15, -200, 130;
-                  15, -200, 130;
-                  15, -200, 130;
-                  0, -200, 130;
-                  0, -200, 130;
-                  0, -200, 130;" dur="8s" repeatCount="indefinite" />
-            </g>
-
-            <path d="M-250 155 l300 0" fill="none" stroke="white" stroke-width="50" />
-            <path d="M-250 130 l300 0" fill="none" stroke="red" stroke-width="3" />
-        </g>
-
-    </svg>
+    <script>
+    document.getElementById('startYogaBtn').onclick = function() {
+        document.getElementById('yogaStatus').innerText = 'Starting yoga exercise...';
+        fetch('/start-yoga', { method: 'POST' })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('yogaStatus').innerText = 'Yoga completed! You can now play the game.';
+                    document.getElementById('playGameBtn').disabled = false;
+                } else {
+                    document.getElementById('yogaStatus').innerText = 'Yoga exercise failed or was cancelled.';
+                }
+            })
+            .catch(() => {
+                document.getElementById('yogaStatus').innerText = 'Error starting yoga exercise.';
+            });
+    };
+    </script>
 
     <!-- ========= Embedding Game End ============ -->
 
