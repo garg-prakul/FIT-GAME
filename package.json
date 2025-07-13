@@ -11,12 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/garg-prakul/FIT-GAME.git"
   },
-  "author": "",
+  "author": "Prakul",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/garg-prakul/FIT-GAME/issues"
-  },
-  "homepage": "https://github.com/garg-prakul/FIT-GAME#readme",
+  
   "dependencies": {
     "bcrypt": "^6.0.0",
     "body-parser": "^1.19.0",
